@@ -26,35 +26,35 @@ public class Pneumatici {
 		this.Tip = Tip;
 	}
 	
-	int getSirina()
+	public int getSirina()
 	{
 		return sirina;
 	}
-	int getOdnosSirineIVisine()
+	public int getOdnosSirineIVisine()
 	{
 		return odnosSirineIVisine;
 	}
-	String getKonstrukcija()
+	public String getKonstrukcija()
 	{
 		return konstrukcija;
 	}
-	int getPrecnik()
+	public int getPrecnik()
 	{
 		return precnik;
 	}
-	int getNosivost()
+	public int getNosivost()
 	{
 		return nosivost;
 	}
-	String getIndeksBrzine()
+	public String getIndeksBrzine()
 	{
 		return indeksBrzine;
 	}
-	float getDubinaGazecegSloja()
+	public float getDubinaGazecegSloja()
 	{
 		return dubinaGazecegSloja;
 	}
-	String getTip()
+	public String getTip()
 	{
 		if(Tip == tip.Letnji)
 			return "Letnji";
@@ -62,11 +62,17 @@ public class Pneumatici {
 			return "Zimski";
 	}
 	
-	void promeniTip(tip Tip)
+	public void promeniTip(tip Tip)
 	{
 		if(this.Tip != Tip)
 			this.Tip = Tip;
 		else
 			System.out.println("Taj tip je vec aktivan!");
+	}
+	
+	@Override
+	public String toString()
+	{
+		return sirina + " " + odnosSirineIVisine + " " + konstrukcija + " " + precnik + " " + nosivost + " " + indeksBrzine + " " + dubinaGazecegSloja + " " + getTip();  
 	}
 }

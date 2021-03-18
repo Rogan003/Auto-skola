@@ -12,20 +12,20 @@ public class Motor {
 		this.verzija = verzija;
 	}
 	
-	int getSnaga()
+	public int getSnaga()
 	{
 		return snaga;
 	}
-	String getMarka()
+	public String getMarka()
 	{
 		return marka;
 	}
-	String getVerzija()
+	public String getVerzija()
 	{
 		return verzija;
 	}
 	
-	void povecajSnagu(int snaga)
+	public void povecajSnagu(int snaga)
 	{
 		if(this.snaga + 20 > snaga && snaga > this.snaga)
 			this.snaga = snaga;
