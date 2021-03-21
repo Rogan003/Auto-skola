@@ -1,6 +1,7 @@
 package autoskola;
 
 public class Vozilo {
+	private int maxBrzina;
 	private String marka;
 	private String verzija;
 	private int godiste;
@@ -13,8 +14,9 @@ public class Vozilo {
 	private Motor motor;
 	private Pneumatici pneumatici;
 	
-	public Vozilo(String marka, String verzija, int godiste, String serijskiBroj, String boja, boolean automatik, int kilometraza, int rezervoar, int stanjeGoriva, Motor motor, Pneumatici pneumatici)
+	public Vozilo(int brzina, String marka, String verzija, int godiste, String serijskiBroj, String boja, boolean automatik, int kilometraza, int rezervoar, int stanjeGoriva, Motor motor, Pneumatici pneumatici)
 	{
+		this.maxBrzina = brzina;
 		this.marka = marka;
 		this.verzija = verzija;
 		this.godiste = godiste;

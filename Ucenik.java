@@ -1,4 +1,4 @@
-import org.graalvm.compiler.phases.util.BlockWorkList;
+import java.time.LocalDate;
 
 public class Ucenik extends Osoba{
     private int id;
@@ -12,8 +12,8 @@ public class Ucenik extends Osoba{
     private boolean polozenaPraksa;
     private Instruktor instruktor;
 
-    public Ucenik(int id, Napredak napredak, int brojCasova, int brojPalihIspita, boolean polozenaTeorija, boolean polozenaPraksa, Instruktor instruktor){
-        super();   //lol nemam pojma da li je ovo sve sto treba i mrzi me sad da istrazujem 1 ujutru je
+    public Ucenik(String ime, String prezime, LocalDate datumRodjenja, Pol pol, int id, Napredak napredak, int brojCasova, int brojPalihIspita, boolean polozenaTeorija, boolean polozenaPraksa, Instruktor instruktor){
+        super(ime, prezime, datumRodjenja, pol);   //lol nemam pojma da li je ovo sve sto treba i mrzi me sad da istrazujem 1 ujutru je
         this.id = id;
         this.napredak = napredak;
         this.brojCasova = brojCasova;

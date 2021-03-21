@@ -1,25 +1,28 @@
-import java.sql.Date;
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Osoba {
     private String ime;
     private String prezime;
     private LocalDate datumRodjenja; // treba jos da skontam kako radi Date type
-    private int godine;
+    
 
     public enum Pol {
-        Muski, Zenski
+        Muski, Zenski;
     }
 
     Pol pol;
 
-    public Vozilo(String ime, String prezime, String datumRodjenja, Pol pol, int godine){
+    public Osoba(String ime, String prezime, LocalDate datumRodjenja, Pol pol){
         this.ime = ime;
         this.prezime = prezime;
         this.datumRodjenja = datumRodjenja;
         this.pol = pol;
-        this.godine = godine;
+        
     }
+
+
+    
 
     public String getIme(){
         return ime;

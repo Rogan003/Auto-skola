@@ -1,15 +1,20 @@
 package autoskola;
 
 public class Motor {
+	private int trenutniObrtaji = 0;
 	private String marka;
 	private String verzija;
 	private int snaga;
+	private int kubikaza;
+	private int brCilindara;
 	
-	public Motor(String marka, String verzija, int snaga)
+	public Motor(String marka, String verzija, int snaga, int kubikaza, int brCilindara)
 	{
 		this.marka = marka;
 		this.snaga = snaga;
 		this.verzija = verzija;
+		this.kubikaza = kubikaza;
+		this.brCilindara = brCilindara;
 	}
 	
 	public int getSnaga()
@@ -24,18 +29,34 @@ public class Motor {
 	{
 		return verzija;
 	}
-	
-	public void povecajSnagu(int snaga)
+	public int getKubikaza()
+	{
+		return kubikaza;
+	}
+	public int getbrCilindara()
+	{
+		return brCilindara;
+	}
+	public void setObrtaji(int O)
+	{
+		this.trenutniObrtaji = O;
+	}
+
+	public void chipTuning(int snaga)
 	{
 		if(this.snaga + 20 > snaga && snaga > this.snaga)
 			this.snaga = snaga;
 		else
 			System.out.println("Prevelika snaga unesena!");
 	}
+	public void upaliMotor()
+	{
+		setObrtaji(1500);
+	}
 	
 	@Override
 	public String toString()
 	{
-		return marka + " " + verzija + "\nSnaga: " + snaga;
+		return marka + " " + verzija + "\nSnaga: " + snaga + " \nKubikaza: " + kubikaza + "\nCilindri:" + brCilindara;
 	}
 }
