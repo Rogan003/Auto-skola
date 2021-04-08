@@ -8,6 +8,7 @@ public class Instruktor extends Osoba{
     private TipInstruktora tipInstruktora;
     private int godineStaza;
     // lista ucenika vrv
+    //vozilo
 
     public Instruktor(String ime, String prezime, LocalDate datumRodjenja, Pol pol,int plata, TipInstruktora tipInstruktora, int godineStaza){
         super(ime, prezime, datumRodjenja, pol);  //isto i za ovo kasnije cu

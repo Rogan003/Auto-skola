@@ -29,7 +29,7 @@ public class Ucenik extends Osoba{
     public Napredak getNapredak(){
         return napredak;
     }
-    public int getBrojcasova(){
+    public int getBrojCasova(){
         return brojCasova;
     }
     public int getBrojPalihIspita(){
@@ -43,6 +43,18 @@ public class Ucenik extends Osoba{
     }
     public Instruktor getInstruktor(){
         return instruktor;
+    }
+    public void polozioTeoriju()
+    {
+    	polozenaTeorija = true;
+    }
+    public void polozioPraksu()
+    {
+    	polozenaPraksa = true;
+    }
+    public void pao()
+    {
+    	brojPalihIspita += 1;
     }
 
     //dodacu kao upisi se metod, gledace godine i tipa ako je 16 moze da udje
