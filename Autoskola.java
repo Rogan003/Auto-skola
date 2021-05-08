@@ -1,25 +1,28 @@
 package autoskola;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import autoskola.Osoba.Pol;
 import autoskola.Ucenik.Napredak;
 import java.lang.Math; 
 
 public class Autoskola {
+	private String naziv;
 	private int cena;
 	private int lokacija;
-	private Ucenik[] ucenici;//treba lista, a ne niz... :(
-	private Instruktor[] instruktori;
+	private ArrayList<Ucenik> ucenici;
+	private ArrayList<Instruktor> instruktori;
 	
-	public Autoskola(int cena, int lokacija, Ucenik[] ucenici, Instruktor[] instruktori)
+	public Autoskola(String naziv, int cena, int lokacija, ArrayList<Ucenik> ucenici, ArrayList<Instruktor> instruktori)
 	{
+		this.naziv = naziv;
 		this.cena = cena;
 		this.lokacija = lokacija;
-		this.ucenici = new Ucenik[ucenici.length];
-		this.ucenici = ucenici;//ako radi odlicno, ako ne kod ispod
-		this.instruktori = new Instruktor[instruktori.length];
-		this.instruktori = instruktori;//isto kao i za ucenike
+		this.ucenici = new ArrayList<Ucenik>();
+		this.ucenici = ucenici;
+		this.instruktori = new ArrayList<Instruktor>();
+		this.instruktori = instruktori;
 		/*
 		for(int i = 0;i < ucenici.length;++i)
 		{
@@ -28,6 +31,10 @@ public class Autoskola {
 		*/
 	}
 	
+	String getNaziv()
+	{
+		return naziv;
+	}
 	int getCena()
 	{
 		return cena;
@@ -36,17 +43,25 @@ public class Autoskola {
 	{
 		return lokacija;
 	}
-	//geteri za ucenici i instruktori?
-	//dodaj instruktora i ucenika
+
+	void dodajInstruktora(Instruktor instruktor)
+	{
+		instruktori.add(instruktor);
+	}
+	
+	void dodajUcenika(Ucenik ucenik)
+	{
+		ucenici.add(ucenik);
+	}
 	
 	void polaganjeTeorije(int kolicina)
 	{
 		for(int i = 0;i < kolicina;++i)
 		{
 			if(Math.random() * 10 + 1 < 8)
-				ucenici[i].polozioTeoriju();
+				ucenici.get(i).polozioTeoriju();
 			else
-				ucenici[i].pao();
+				ucenici.get(i).pao();
 		}
 	}
 	void polaganjePrakse()
@@ -54,10 +69,28 @@ public class Autoskola {
 		double tezina = Math.random() * 3 + 1; //1-strogi, 2-srednje, 3-popustljivi
 		if(Math.random() * 10 + 1 < 5 + tezina)
 		{
-			ucenici[0].polozioPraksu();
-			//izbaciti ga iz liste ucenika i svih ostalih listi
+			ucenici.get(0).polozioPraksu();
+			ucenici.remove(0);
 		}
 		else
-			ucenici[0].pao();
+			ucenici.get(0).pao();
+	}
+	
+	@Override
+	public String toString()
+	{
+		String nesto = "";
+		nesto += "Naziv: " + naziv + "\n";
+		nesto += "Lokacija: " + lokacija + "\n";
+		nesto += "Cena: " + cena + "\n";
+		for(Ucenik ucenik:ucenici)
+		{
+			nesto += ucenik + "\n";
+		}
+		for(Instruktor instruktor:instruktori)
+		{
+			nesto += instruktor + "\n";
+		}
+		return nesto;
 	}
 }
