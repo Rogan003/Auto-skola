@@ -1,10 +1,12 @@
+package autoskola;
+
 import java.time.LocalDate;
 import java.time.Period;
 
 public class Osoba {
-    private String ime;
-    private String prezime;
-    private LocalDate datumRodjenja; // treba jos da skontam kako radi Date type
+    protected String ime;
+    protected String prezime;
+    protected LocalDate datumRodjenja; // treba jos da skontam kako radi Date type
     
 
     public enum Pol {

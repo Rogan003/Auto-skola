@@ -1,10 +1,6 @@
 package autoskola;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
-
-import autoskola.Osoba.Pol;
-import autoskola.Ucenik.Napredak;
 import java.lang.Math; 
 
 public class Autoskola {

@@ -17,6 +17,10 @@ public class Motor {
 		this.brCilindara = brCilindara;
 	}
 	
+	public int getTrenutniObrtaji()
+	{
+		return trenutniObrtaji;
+	}
 	public int getSnaga()
 	{
 		return snaga;

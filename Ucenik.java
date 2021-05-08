@@ -1,3 +1,5 @@
+package autoskola;
+
 import java.time.LocalDate;
 
 public class Ucenik extends Osoba{
@@ -56,6 +58,21 @@ public class Ucenik extends Osoba{
     {
     	brojPalihIspita += 1;
     }
+    
+    @Override
+	public String toString()
+	{
+    	String pt = "Ne";
+    	String pp = "Ne";
+    	if(polozenaTeorija)
+    		pt = "Da";
+    	if(polozenaPraksa)
+    		pp = "Da";
+    	return "Ime: " + ime + "\nPrezime: " + prezime + "\nDatum rodjenja: " + datumRodjenja
+    			+ "\nPol: " + pol + "\nID: " + id + "\nNapredak: " + napredak + "\nBroj casova: " + brojCasova
+    			+ "\nBroj palih ispita" + brojPalihIspita + "\nPolozena teorija: " + pt + "\nPolozena praksa: "
+    			+ pp + "\nInstruktor: " + instruktor + "\n";
+	}
 
     //dodacu kao upisi se metod, gledace godine i tipa ako je 16 moze da udje
     // takodje metod izadji na ispit teorije i voznje, gleda sta je sve polozeno i godine ucenika
