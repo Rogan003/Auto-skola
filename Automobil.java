@@ -1,4 +1,4 @@
-package autoskola;
+
 
 public class Automobil extends Vozilo{
     private int brojSedista;

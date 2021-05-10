@@ -1,4 +1,4 @@
-package autoskola;
+
 
 public class Pneumatici {
 	private int sirina;

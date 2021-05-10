@@ -1,4 +1,3 @@
-package autoskola;
 
 public class Motor {
 	private int trenutniObrtaji = 0;

@@ -1,4 +1,4 @@
-package autoskola;
+
 
 import java.time.LocalDate;
 
@@ -15,7 +15,7 @@ public class Ucenik extends Osoba{
     private Instruktor instruktor;
 
     public Ucenik(String ime, String prezime, LocalDate datumRodjenja, Pol pol, int id, Napredak napredak, int brojCasova, int brojPalihIspita, boolean polozenaTeorija, boolean polozenaPraksa, Instruktor instruktor){
-        super();
+        super(prezime, prezime, datumRodjenja, pol);
         this.id = id;
         this.napredak = napredak;
         this.brojCasova = brojCasova;

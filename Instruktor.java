@@ -1,8 +1,9 @@
-package autoskola;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import autoskola.Ucenik;
 
 public class Instruktor extends Osoba{
     private int plata;
@@ -14,7 +15,7 @@ public class Instruktor extends Osoba{
     List<Ucenik> listaUcenika = new ArrayList<Ucenik>();
 
     public Instruktor(String ime, String prezime, LocalDate datumRodjenja, Pol pol,int plata, TipInstruktora tipInstruktora, int godineStaza, List listaUcenika){
-        super();
+        super(prezime, prezime, datumRodjenja, pol);
         this.plata = plata;
         this.tipInstruktora = tipInstruktora;
         this.godineStaza = godineStaza;
@@ -35,7 +36,7 @@ public class Instruktor extends Osoba{
     }
     
     public List<Ucenik> dodajUcenika(){
-        listaUcenika.add(/*Milan*/);
+        listaUcenika.add(Ucenik);
     }
 
     @Override
