@@ -1,12 +1,14 @@
 package autoskola;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.Period;
+import java.time.Year;
 
 public class Osoba {
     protected String ime;
     protected String prezime;
-    protected LocalDate datumRodjenja; // treba jos da skontam kako radi Date type
+    protected LocalDate datumRodjenja;
     
 
     public enum Pol {
@@ -42,5 +44,9 @@ public class Osoba {
     public int getGodine(LocalDate datumRodjenja, LocalDate danasnjiDatum){
         return Period.between(datumRodjenja, danasnjiDatum).getYears();
         
+    }
+
+    public LocalDate setLocalDate(LocalDate datum){
+        this.datumRodjenja = datum;
     }
 }
