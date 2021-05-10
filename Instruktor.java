@@ -1,6 +1,8 @@
 package autoskola;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Instruktor extends Osoba{
     private int plata;
@@ -9,13 +11,14 @@ public class Instruktor extends Osoba{
     }
     private TipInstruktora tipInstruktora;
     private int godineStaza;
-    // lista ucenika vrv
+    List<Ucenik> listaUcenika = new ArrayList<Ucenik>();
 
-    public Instruktor(String ime, String prezime, LocalDate datumRodjenja, Pol pol,int plata, TipInstruktora tipInstruktora, int godineStaza){
-        super(ime, prezime, datumRodjenja, pol);  //isto i za ovo kasnije cu
+    public Instruktor(String ime, String prezime, LocalDate datumRodjenja, Pol pol,int plata, TipInstruktora tipInstruktora, int godineStaza, List listaUcenika){
+        super();
         this.plata = plata;
         this.tipInstruktora = tipInstruktora;
         this.godineStaza = godineStaza;
+        this.listaUcenika = listaUcenika;
     }
 
     public int getPlata(){
@@ -27,7 +30,14 @@ public class Instruktor extends Osoba{
     public int getGodineStaza(){
         return godineStaza;
     }
+    public List<Ucenik> getArrayList(){
+        return listaUcenika;
+    }
     
+    public List<Ucenik> dodajUcenika(){
+        listaUcenika.add(/*Milan*/);
+    }
+
     @Override
 	public String toString()
 	{
