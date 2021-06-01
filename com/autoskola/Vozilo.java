@@ -1,4 +1,4 @@
-
+package com.autoskola;
 
 public class Vozilo {
 	protected int maxBrzina;

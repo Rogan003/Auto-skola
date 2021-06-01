@@ -1,4 +1,4 @@
-
+/*package com.autoskola;
 
 import java.util.ArrayList;
 import java.io.BufferedWriter;
@@ -16,7 +16,7 @@ public class GlavnaKlasa {
 		Scanner reader = new Scanner(infomracije);
 		/*napraviti fajl sa listom ucenika i listom instruktora, kao i nazivom, ocenom lokacije(1-5) i cenom autoskole
 		ovde citati taj fajl i dati vrednosti tim promenljivim iz fajla*/
-		String naziv;
+	/*	String naziv;
 		int cena;
 		int lokacija;
 		ArrayList<Ucenik> ucenici;
@@ -34,3 +34,4 @@ public class GlavnaKlasa {
 	}
 
 }
+*/
