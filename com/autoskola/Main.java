@@ -1,25 +1,24 @@
 package com.autoskola;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+
 import java.util.Scanner;
 
-import com.autoskola.FunkcijeZaFajl;
-import com.autoskola.Instruktor.TipInstruktora;
-import com.autoskola.Osoba;
-import com.autoskola.Pneumatici.tip;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
+import com.autoskola.Instruktor.TipInstruktora;
+
+import com.autoskola.Osoba.Pol;
+
+
+
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Scanner unosScanner = new Scanner(System.in);
+      /*  Scanner unosScanner = new Scanner(System.in);
         int izbor;
         int izbor2;
         do {
@@ -59,9 +58,9 @@ public class Main {
 
                             System.out.println("----------DODAVANJE NOVOG INSTRUKTORA----------");
                             System.out.println("Unesite Ime: ");
-                            ime = unosScanner.nextLine();
+                            ime1 = unosScanner.nextLine();
                             System.out.println("Unesite Prezime: ");
-                            prezime = unosScanner.nextLine();
+                            prezime1 = unosScanner.nextLine();
                             System.out.println("Unesite Datum Rodjenja ()");
                             //datumRodjenja = unosScanner.   moram da nadjem koji scanner da koristim
                             System.out.println("Unesite Pol (Muski, Zenski): ");
@@ -156,8 +155,13 @@ public class Main {
                     System.out.println("Dovidjenja :)");
                     return;
             }
-        } while ( izbor < 1 || izbor > 4);
+            unosScanner.close();
+        } while ( izbor < 1 || izbor > 4);*/
+        
         FunkcijeZaFajl fajl = new FunkcijeZaFajl();
-        fajl.NapisiUFaljl("Provera");
+        
+        List<Ucenik> lista = fajl.citajUcenike();
+        
+
     }
 }

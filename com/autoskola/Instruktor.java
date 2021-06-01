@@ -11,9 +11,10 @@ public class Instruktor extends Osoba{
     }
     private TipInstruktora tipInstruktora;
     private int godineStaza;
-    List<Ucenik> listaUcenika = new ArrayList<Ucenik>();
+    List<Integer> listaUcenika;
+    
 
-    public Instruktor(String ime, String prezime, LocalDate datumRodjenja, Pol pol,int plata, TipInstruktora tipInstruktora, int godineStaza, List<Ucenik> listaUcenika){
+    public Instruktor(String ime, String prezime, String datumRodjenja, Pol pol,int plata, TipInstruktora tipInstruktora, int godineStaza, List<Integer> listaUcenika){
         super(prezime, prezime, datumRodjenja, pol);
         this.plata = plata;
         this.tipInstruktora = tipInstruktora;
@@ -30,11 +31,11 @@ public class Instruktor extends Osoba{
     public int getGodineStaza(){
         return godineStaza;
     }
-    public List<Ucenik> getArrayList(){
+    public List<Integer> getListUcenika(){
         return listaUcenika;
     }
     
-    public void dodajUcenika(Ucenik ucenik){
+    public void dodajUcenika(Integer ucenik){
         listaUcenika.add(ucenik);
     }
 

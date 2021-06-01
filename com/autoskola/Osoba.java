@@ -8,7 +8,7 @@ import java.time.Year;
 public class Osoba {
     protected String ime;
     protected String prezime;
-    protected LocalDate datumRodjenja;
+    protected String datumRodjenja;
     
 
     public enum Pol {
@@ -17,7 +17,7 @@ public class Osoba {
 
     Pol pol;
 
-    public Osoba(String ime, String prezime, LocalDate datumRodjenja, Pol pol){
+    public Osoba(String ime, String prezime, String datumRodjenja, Pol pol){
         this.ime = ime;
         this.prezime = prezime;
         this.datumRodjenja = datumRodjenja;
@@ -34,7 +34,7 @@ public class Osoba {
     public String getPrezime(){
         return prezime;
     }
-    public LocalDate getDatumRodjenja(){
+    public String getDatumRodjenja(){
         return datumRodjenja;
     }
     public Pol getPol(){
@@ -46,7 +46,7 @@ public class Osoba {
         
     }
 
-    public void setLocalDate(LocalDate datum){
+    public void setLocalDate(String datum){
         this.datumRodjenja = datum;
     }
 }
