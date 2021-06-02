@@ -1,12 +1,13 @@
-package com.autoskola;
+package autoskola;
 
 import java.io.File;
+
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import com.autoskola.Instruktor.TipInstruktora;
-import com.autoskola.Osoba.Pol;
-import com.autoskola.Ucenik.Napredak;
+import autoskola.Instruktor.TipInstruktora;
+import autoskola.Osoba.Pol;
+import autoskola.Ucenik.Napredak;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -21,10 +22,10 @@ public class FunkcijeZaFajl {
 
     }
 
-    List<Ucenik> citajUcenike() throws FileNotFoundException {
-        File Fajl = new File("informacije.txt");
+    ArrayList<Ucenik> citajUcenike() throws FileNotFoundException {
+        File Fajl = new File("E:\\Skola\\OOP\\Zadaci\\autoskola\\src\\autoskola\\informacije.txt");
         Scanner citac = new Scanner(Fajl);
-        List<Ucenik> lista = new ArrayList<>();
+        ArrayList<Ucenik> lista = new ArrayList<>();
         String[] obj;
         while (citac.hasNextLine()) {
             String data = citac.nextLine();
@@ -54,22 +55,21 @@ public class FunkcijeZaFajl {
                 } else {
                     prak = false;
                 }
-                int id = Integer.parseInt(obj[0]);
+                int id = Integer.parseInt(obj[1]);
                 int brc = Integer.parseInt(obj[7]);
                 int brp = Integer.parseInt(obj[8]);
-                Ucenik x = new Ucenik(obj[1], obj[2], obj[3], p, id, n, brc, brp, teor, prak);
+                Ucenik x = new Ucenik(obj[2], obj[3], obj[4], p, n, brc, brp, teor, prak, id);
                 lista.add(x);
             }
         }
-
         citac.close();
         return lista;
     }
 
-    List<Instruktor> citajInstruktore() throws FileNotFoundException {
-        File Fajl = new File("informacijeInstruktori.txt");
+    ArrayList<Instruktor> citajInstruktore() throws FileNotFoundException {
+        File Fajl = new File("E:\\Skola\\OOP\\Zadaci\\autoskola\\src\\autoskola\\informacijeInstruktori.txt");
         Scanner citac = new Scanner(Fajl);
-        List<Instruktor> lista = new ArrayList<>();
+        ArrayList<Instruktor> lista = new ArrayList<>();
         String[] obj;
         while (citac.hasNextLine()) {
             String data = citac.nextLine();
@@ -82,17 +82,20 @@ public class FunkcijeZaFajl {
                     p = Osoba.Pol.Zenski;
                 }
                 Instruktor.TipInstruktora tip;
-                if (obj[9].equals("Teorija")) {
+                if (obj[6].equals("Teorija")) {
                     tip = Instruktor.TipInstruktora.Teorija;// !!!!!!
                 } else {
                     tip = Instruktor.TipInstruktora.Praksa;
                 }
-                List<Integer> ucenici = new ArrayList<>();
-                String[] obj1 = obj[8].split("*");
+                ArrayList<Ucenik> ucenici = new ArrayList<>();
+                ArrayList<Ucenik> sviUcenici = new ArrayList<>();
+                sviUcenici = this.citajUcenike();
+                String[] obj1 = obj[8].split("_");
                 int i = 0;
                 while (i < obj1.length) {
                     int f = Integer.parseInt(obj1[i]);
-                    ucenici.add(f);
+                    ucenici.add(sviUcenici.get(f));
+                    ++i;
                 }
                 int pl = Integer.parseInt(obj[5]);
                 int gs = Integer.parseInt(obj[7]);
@@ -100,15 +103,14 @@ public class FunkcijeZaFajl {
                 lista.add(x);
             }
         }
-
         citac.close();
         return lista;
     }
 
-    List<Vozilo> citajVozila() throws FileNotFoundException {
-        File Fajl = new File("informacijeVozila.txt");
+    ArrayList<Vozilo> citajVozila() throws FileNotFoundException {
+        File Fajl = new File("E:\\Skola\\OOP\\Zadaci\\autoskola\\src\\autoskola\\informacijeVozila.txt");
         Scanner citac = new Scanner(Fajl);
-        List<Vozilo> lista = new ArrayList<>();
+        ArrayList<Vozilo> lista = new ArrayList<>();
         String[] obj;
         while (citac.hasNextLine()) {
             String data = citac.nextLine();
@@ -147,7 +149,7 @@ public class FunkcijeZaFajl {
         return lista;
     }
 
-    void pisiUcenika(List<Ucenik> u) throws FileNotFoundException {
+    void pisiUcenika(ArrayList<Ucenik> u) throws FileNotFoundException {
         PrintWriter pw = new PrintWriter("informacije.txt");
         int i = 0;
         while (i < u.size()) {
@@ -170,7 +172,7 @@ public class FunkcijeZaFajl {
         pw.close();
     }
 
-    void pisiInstruktora(List<Instruktor> u) throws FileNotFoundException {
+    void pisiInstruktora(ArrayList<Instruktor> u) throws FileNotFoundException {
         PrintWriter pw = new PrintWriter("informacijeInstruktori.txt");
         int i = 0;
         while (i < u.size()) {
@@ -187,15 +189,17 @@ public class FunkcijeZaFajl {
             }
             pw.write("Instruktor/" + u.get(i).ime + "/" + u.get(i).prezime + "/" + u.get(i).datumRodjenja + "/" + p
                     + "/" + u.get(i).getPlata() + "/" + n + "/" + u.get(i).getGodineStaza() + "/" + "\n");
-
-            for (Integer uc : u.get(i).listaUcenika) {
+            int [] indexi = new int[u.get(i).listaUcenika.size()];
+            //jako komplikovano za odraditi sad
+        	//treba izvuci sve ucenike i njima gledati da li im je ovo instruktor
+            for (Integer uc : indexi) {
                 pw.write(uc + "*");
             }
         }
         pw.close();
     }
 
-    void pisiVozilo(List<Vozilo> u) throws FileNotFoundException {
+    void pisiVozilo(ArrayList<Vozilo> u) throws FileNotFoundException {
         PrintWriter pw = new PrintWriter("informacijeInstruktori.txt");
         int i = 0;
         while (i < u.size()) {

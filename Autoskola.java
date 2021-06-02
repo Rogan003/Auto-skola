@@ -1,6 +1,7 @@
-package com.autoskola;
+package autoskola;
 
 import java.util.ArrayList;
+
 import java.lang.Math;
 
 public class Autoskola {
@@ -56,7 +57,21 @@ public class Autoskola {
 	void dodajVozilo(Vozilo vozilo) {
 		vozila.add(vozilo);
 	}
-
+	
+	Instruktor getInstruktor(int i) {
+		return instruktori.get(i - 1);
+	}
+	Ucenik getUcenik(int i) {
+		return ucenici.get(i - 1);
+	}
+	Vozilo getVozilo(int i) {
+		return vozila.get(i - 1);
+	}
+	
+	int getDuzinaInstruktora() {
+		return instruktori.size();
+	}
+	
 	void polaganjeTeorije(int kolicina) {
 		for (int i = 0; i < kolicina; ++i) {
 			if (Math.random() * 10 + 1 < 8)

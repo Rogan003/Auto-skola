@@ -1,4 +1,4 @@
-package com.autoskola;
+package autoskola;
 
 public class Pneumatici {
 	private int sirina;
@@ -8,15 +8,14 @@ public class Pneumatici {
 	private int nosivost;
 	private String indeksBrzine;
 	private float dubinaGazecegSloja;
-
-	public enum tip {
+	public enum tip
+	{
 		Zimski, Letnji
 	}
-
 	tip Tip;
-
-	public Pneumatici(int sirina, int odnosSirineIVisine, String konstrukcija, int precnik, int nosivost,
-			String indeksBrzine, float dubinaGazecegSloja, tip Tip) {
+	
+	public Pneumatici(int sirina, int odnosSirineIVisine, String konstrukcija, int precnik, int nosivost, String indeksBrzine, float dubinaGazecegSloja, tip Tip)
+	{
 		this.sirina = sirina;
 		this.odnosSirineIVisine = odnosSirineIVisine;
 		this.konstrukcija = konstrukcija;
@@ -26,52 +25,54 @@ public class Pneumatici {
 		this.dubinaGazecegSloja = dubinaGazecegSloja;
 		this.Tip = Tip;
 	}
-
-	public int getSirina() {
+	
+	public int getSirina()
+	{
 		return sirina;
 	}
-
-	public int getOdnosSirineIVisine() {
+	public int getOdnosSirineIVisine()
+	{
 		return odnosSirineIVisine;
 	}
-
-	public String getKonstrukcija() {
+	public String getKonstrukcija()
+	{
 		return konstrukcija;
 	}
-
-	public int getPrecnik() {
+	public int getPrecnik()
+	{
 		return precnik;
 	}
-
-	public int getNosivost() {
+	public int getNosivost()
+	{
 		return nosivost;
 	}
-
-	public String getIndeksBrzine() {
+	public String getIndeksBrzine()
+	{
 		return indeksBrzine;
 	}
-
-	public float getDubinaGazecegSloja() {
+	public float getDubinaGazecegSloja()
+	{
 		return dubinaGazecegSloja;
 	}
-
-	public String getTip() {
-		if (Tip == tip.Letnji)
+	public String getTip()
+	{
+		if(Tip == tip.Letnji)
 			return "Letnji";
 		else
 			return "Zimski";
 	}
-
-	public void promeniTip(tip Tip) {
-		if (this.Tip != Tip)
+	
+	public void promeniTip(tip Tip)
+	{
+		if(this.Tip != Tip)
 			this.Tip = Tip;
 		else
 			System.out.println("Taj tip je vec aktivan!");
 	}
-
+	
 	@Override
-	public String toString() {
-		return sirina + " " + odnosSirineIVisine + " " + konstrukcija + " " + precnik + " " + nosivost + " "
-				+ indeksBrzine + " " + dubinaGazecegSloja + " " + getTip();
+	public String toString()
+	{
+		return sirina + " " + odnosSirineIVisine + " " + konstrukcija + " " + precnik + " " + nosivost + " " + indeksBrzine + " " + dubinaGazecegSloja + " " + getTip();  
 	}
 }

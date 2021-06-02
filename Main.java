@@ -1,15 +1,15 @@
-package com.autoskola;
+package autoskola;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import com.autoskola.FunkcijeZaFajl;
-import com.autoskola.Instruktor.TipInstruktora;
-import com.autoskola.Osoba.Pol;
-import com.autoskola.Osoba;
-import com.autoskola.Pneumatici.tip;
-import com.autoskola.Ucenik.Napredak;
+import autoskola.FunkcijeZaFajl;
+import autoskola.Instruktor.TipInstruktora;
+import autoskola.Osoba.Pol;
+import autoskola.Osoba;
+import autoskola.Pneumatici.tip;
+import autoskola.Ucenik.Napredak;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -18,30 +18,28 @@ import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.Math;
 
 public class Main {
-    public static int main(String[] args) throws IOException {
+    public static void  main(String[] args) throws IOException {
         Scanner unosScanner = new Scanner(System.in);
         int izbor;
         int izbor2;
-        int izbor3;
-        int izbor4;
-
+        FunkcijeZaFajl fajl = new FunkcijeZaFajl();
         String naziv = "NASA AUTOSKOLA";
         int cena = 80000;
         int lokacija = 5;
         ArrayList<Ucenik> ucenici = new ArrayList<Ucenik>();
+        ucenici = fajl.citajUcenike();
         ArrayList<Instruktor> instruktori = new ArrayList<Instruktor>();
+        instruktori = fajl.citajInstruktore();
         ArrayList<Vozilo> vozila = new ArrayList<Vozilo>();
-
+        vozila = fajl.citajVozila();
         Autoskola autoskola = new Autoskola(naziv, cena, lokacija, ucenici, instruktori, vozila);
-
         String temp;
         do {
-
             System.out.println("1 - Dodaj\n2 - Prikazi\n\n3 - Izadji");
             izbor = unosScanner.nextInt();
-
             switch (izbor) {
                 case 1:
                     System.out.println(
@@ -58,7 +56,6 @@ public class Main {
                             int brojPalihIspita = 0;
                             boolean polozenaTeorija = false;
                             boolean polozenaPraksa = false;
-                            Instruktor instruktor;
                             int id;
 
                             System.out.println("----------DODAVANJE NOVOG UCENIKA----------");
@@ -76,11 +73,8 @@ public class Main {
                             System.out.println("Unesite Napredak (Teorija, Praksa):");
                             temp = unosScanner.nextLine();
                             napredak = Napredak.valueOf(temp);
-
-                            // RANDOM INSTRUKTOR
-
                             Ucenik u = new Ucenik(ime, prezime, datumRodjenja, pol, napredak, brojCasova,
-                                    brojPalihIspita, polozenaTeorija, polozenaPraksa, instruktor, id);
+                                    brojPalihIspita, polozenaTeorija, polozenaPraksa, id);
 
                             autoskola.dodajUcenika(u);
                             break;
@@ -91,7 +85,6 @@ public class Main {
                             Pol pol1;
                             int plata;
                             TipInstruktora tipInstruktora;
-                            List<Ucenik> listaUcenika;
                             int godineStaza = 0;
 
                             System.out.println("----------DODAVANJE NOVOG INSTRUKTORA----------");
@@ -109,12 +102,9 @@ public class Main {
                             System.out.println("Unesite Tip Istruktora (Teorija, Praksa): ");
                             temp = unosScanner.nextLine();
                             tipInstruktora = TipInstruktora.valueOf(temp);
-
-                            // RANDOM NEKOLIKO UCENIKA
-
+                            ArrayList<Ucenik> listaUcenika = new ArrayList<>();
                             Instruktor i = new Instruktor(ime1, prezime1, datumRodjenja1, pol1, plata, tipInstruktora,
                                     godineStaza, listaUcenika);
-
                             autoskola.dodajInstruktora(i);
                             break;
                         case 3:
@@ -215,114 +205,15 @@ public class Main {
                     }
                     break;
                 case 2:
-                    System.out.println(
-                            "Izabrali ste prikazivanje. Sta zelite da prikazete?\n\n1 - Prikazi Ucenike\n2 - Prikazi Instruktore\n3 - Prikazi Vozila\n\n4 - Nazad");
-                    izbor2 = unosScanner.nextInt();
-                    switch (izbor2) {
-                        case 1:
-                            System.out.println("----------PRIKAZIVANJE UCENIKA----------");
-                            // citanje i ubacivanje u listu
-                            List<Ucenik> uceniks = new ArrayList<Ucenik>();
-                            for (int i = 0; i < uceniks.size(); i++) {
-                                System.out.println(i + 1 + ". Ucenik");
-                                System.out.println(uceniks.get(i).getIme());
-                                System.out.println(uceniks.get(i).getPrezime());
-                                System.out.println(uceniks.get(i).getDatumRodjenja());
-                                System.out.println(uceniks.get(i).getPol());
-                                System.out.println(uceniks.get(i).getId());
-                                System.out.println(uceniks.get(i).getNapredak());
-                                System.out.println(uceniks.get(i).getBrojCasova());
-                                System.out.println(uceniks.get(i).getBrojPalihIspita());
-                                System.out.println(uceniks.get(i).getPolozenaTeorija());
-                                System.out.println(uceniks.get(i).getPolozenaPraksa());
-                                System.out.println(uceniks.get(i).getInstruktor());
-                                // ovo se moze ulepsati
-                            }
-                            System.out.println("\n\n1 - Obrisi Nekog Ucenika\n 2 - nazad");
-                            izbor3 = unosScanner.nextInt();
-                            switch (izbor3) {
-                                case 1:
-                                    System.out.println("Izaberite ucenika za brisanje: ");
-                                    int indexZaBrisanje = unosScanner.nextInt();
-                                    // obrisi(Ucecnik, inedxZaBrisanje - 1);
-                                    break;
-
-                                case 2:
-                                    // nazad
-                                    break;
-                            }
-                            break;
-                        case 2:
-                            System.out.println("----------PRIKAZIVANJE INSTRUKTORA----------");
-                            // citanje i ubacivanje u listu
-                            List<Instruktor> instruktors = new ArrayList<Instruktor>();
-                            for (int i = 0; i < instruktors.size(); i++) {
-                                System.out.println(instruktors.get(i).getIme());
-                                System.out.println(instruktors.get(i).getPrezime());
-                                System.out.println(instruktors.get(i).getDatumRodjenja());
-                                System.out.println(instruktors.get(i).getPol());
-                                System.out.println(instruktors.get(i).getPlata());
-                                System.out.println(instruktors.get(i).getTipInstruktora());
-                                System.out.println(instruktors.get(i).getGodineStaza());
-                                System.out.println(instruktors.get(i).getArrayList());
-                            }
-                            System.out.println("\n\n1 - Obrisi Nekog Ucenika\n 2 - nazad");
-                            izbor3 = unosScanner.nextInt();
-                            switch (izbor3) {
-                                case 1:
-                                    System.out.println("Izaberite ucenika za brisanje: ");
-                                    int indexZaBrisanje = unosScanner.nextInt();
-                                    // obrisi(Instruktor, inedxZaBrisanje - 1);
-                                    break;
-
-                                case 2:
-                                    // nazad
-                                    break;
-                            }
-                            break;
-                        case 3:
-                            System.out.println("----------PRIKAZIVANJE VOZILA----------");
-                            // citanje i ubacivanje u listu
-                            List<Vozilo> vozilas = new ArrayList<Vozilo>();
-                            for (int i = 0; i < vozilas.size(); i++) {
-                                System.out.println(vozilas.get(i).getMaxBrzina());
-                                System.out.println(vozilas.get(i).getMarka());
-                                System.out.println(vozilas.get(i).getVerzija());
-                                System.out.println(vozilas.get(i).getGodiste());
-                                System.out.println(vozilas.get(i).getSerijskiBroj());
-                                System.out.println(vozilas.get(i).getBoja());
-                                System.out.println(vozilas.get(i).getAutomatik());
-                                System.out.println(vozilas.get(i).getKilometraza());
-                                System.out.println(vozilas.get(i).getRezervoar());
-                                System.out.println(vozilas.get(i).getMotor());
-                                System.out.println(vozilas.get(i).getPneumatici());
-                            }
-                            System.out.println("\n\n1 - Obrisi Nekog Ucenika\n 2 - nazad");
-                            izbor3 = unosScanner.nextInt();
-                            switch (izbor3) {
-                                case 1:
-                                    System.out.println("Izaberite ucenika za brisanje: ");
-                                    int indexZaBrisanje = unosScanner.nextInt();
-                                    // obrisi(Vozilo, inedxZaBrisanje - 1);
-                                    break;
-
-                                case 2:
-                                    // nazad
-                                    break;
-                            }
-                            break;
-                        case 4:
-                            // nazad
-                            break;
-                    }
+                    System.out.println("Izabrali ste prikazivanje.\n");
+                    System.out.println(autoskola);
                     break;
                 case 3:
                     System.out.println("Dovidjenja :)");
-                    return 0;
+                    izbor = 5;
+                    break;
             }
-        } while (izbor < 1 || izbor > 3);
+        } while (izbor >= 1 && izbor <= 3);
         unosScanner.close();
-        FunkcijeZaFajl fajl = new FunkcijeZaFajl();
-        fajl.NapisiUFaljl("Provera");
     }
 }

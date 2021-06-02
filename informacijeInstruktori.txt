@@ -1,0 +1,3 @@
+Instruktor/Borisa/Borisavljevic/"DatumX"/Musko/67000/Teorija/16/0_1_2_3
+Instruktor/Jovica/Jovanovic/"DatumX"/Musko/84000/Praksa/5/4_5_6
+Instruktor/Borko/Borko/"DatumX"/Musko/83999/Praksa/4/7_8_9

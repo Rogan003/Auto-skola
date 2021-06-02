@@ -1,4 +1,4 @@
-package com.autoskola;
+package autoskola;
 
 public class Ucenik extends Osoba {
     private int id;
@@ -12,10 +12,9 @@ public class Ucenik extends Osoba {
     private int brojPalihIspita;
     private boolean polozenaTeorija;
     private boolean polozenaPraksa;
-    private Instruktor instruktor;
 
     public Ucenik(String ime, String prezime, String datumRodjenja, Pol pol, Napredak napredak, int brojCasova,
-            int brojPalihIspita, boolean polozenaTeorija, boolean polozenaPraksa, Instruktor instruktor, int id) {
+            int brojPalihIspita, boolean polozenaTeorija, boolean polozenaPraksa, int id) {
         super(prezime, prezime, datumRodjenja, pol);
         this.id = id;
         this.napredak = napredak;
@@ -23,7 +22,6 @@ public class Ucenik extends Osoba {
         this.brojPalihIspita = brojPalihIspita;
         this.polozenaTeorija = polozenaTeorija;
         this.polozenaPraksa = polozenaPraksa;
-        this.instruktor = instruktor;
     }
 
     public int getId() {
@@ -50,10 +48,6 @@ public class Ucenik extends Osoba {
         return polozenaPraksa;
     }
 
-    public Instruktor getInstruktor() {
-        return instruktor;
-    }
-
     public void polozioTeoriju() {
         polozenaTeorija = true;
     }
@@ -76,12 +70,6 @@ public class Ucenik extends Osoba {
             pp = "Da";
         return "Ime: " + ime + "\nPrezime: " + prezime + "\nDatum rodjenja: " + datumRodjenja + "\nPol: " + pol
                 + "\nID: " + id + "\nNapredak: " + napredak + "\nBroj casova: " + brojCasova + "\nBroj palih ispita"
-                + brojPalihIspita + "\nPolozena teorija: " + pt + "\nPolozena praksa: " + pp + "\nInstruktor: "
-                + instruktor + "\n";
+                + brojPalihIspita + "\nPolozena teorija: " + pt + "\nPolozena praksa: " + pp + "\n";
     }
-
-    // dodacu kao upisi se metod, gledace godine i tipa ako je 16 moze da udje
-    // takodje metod izadji na ispit teorije i voznje, gleda sta je sve polozeno i
-    // godine ucenika
-
 }

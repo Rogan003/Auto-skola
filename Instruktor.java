@@ -1,4 +1,4 @@
-package com.autoskola;
+package autoskola;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +12,10 @@ public class Instruktor extends Osoba {
 
     private TipInstruktora tipInstruktora;
     private int godineStaza;
-    List<Ucenik> listaUcenika = new ArrayList<Ucenik>();
+    ArrayList<Ucenik> listaUcenika = new ArrayList<Ucenik>();
 
     public Instruktor(String ime, String prezime, String datumRodjenja, Pol pol, int plata,
-            TipInstruktora tipInstruktora, int godineStaza, List<Ucenik> listaUcenika) {
+            TipInstruktora tipInstruktora, int godineStaza, ArrayList<Ucenik> listaUcenika) {
         super(prezime, prezime, datumRodjenja, pol);
         this.plata = plata;
         this.tipInstruktora = tipInstruktora;
@@ -35,7 +35,7 @@ public class Instruktor extends Osoba {
         return godineStaza;
     }
 
-    public List<Ucenik> getArrayList() {
+    public ArrayList<Ucenik> getArrayList() {
         return listaUcenika;
     }
 
@@ -52,6 +52,14 @@ public class Instruktor extends Osoba {
             tip = "Praksa";
         return "Ime: " + ime + "\nPrezime: " + prezime + "\nDatum rodjenja: " + datumRodjenja + "\nPol: " + pol
                 + "\nPlata: " + plata + "\nTip instruktora: " + tip + "\nGodine staza: " + godineStaza;
+    }
+    
+    public boolean equals(Instruktor i) {
+    	if(this.ime.equals(i.getIme()) && this.prezime.equals(i.getPrezime()) && this.datumRodjenja.equals(i.getDatumRodjenja()) &&
+    		this.pol == i.getPol() && this.plata == i.getPlata() &&
+            this.tipInstruktora == i.getTipInstruktora() && this.godineStaza == i.getGodineStaza())
+    		return true;
+    	return false;
     }
 
 }
