@@ -7,14 +7,14 @@ public class Pneumatici {
 	private int precnik;
 	private int nosivost;
 	private String indeksBrzine;
-	private float dubinaGazecegSloja;
+	private int dubinaGazecegSloja;
 	public enum tip
 	{
 		Zimski, Letnji
 	}
 	tip Tip;
 	
-	public Pneumatici(int sirina, int odnosSirineIVisine, String konstrukcija, int precnik, int nosivost, String indeksBrzine, float dubinaGazecegSloja, tip Tip)
+	public Pneumatici(int sirina, int odnosSirineIVisine, String konstrukcija, int precnik, int nosivost, String indeksBrzine, int dubinaGazecegSloja, tip Tip)
 	{
 		this.sirina = sirina;
 		this.odnosSirineIVisine = odnosSirineIVisine;
@@ -50,7 +50,7 @@ public class Pneumatici {
 	{
 		return indeksBrzine;
 	}
-	public float getDubinaGazecegSloja()
+	public int getDubinaGazecegSloja()
 	{
 		return dubinaGazecegSloja;
 	}

@@ -38,7 +38,7 @@ public class Main {
         Autoskola autoskola = new Autoskola(naziv, cena, lokacija, ucenici, instruktori, vozila);
         String temp;
         do {
-            System.out.println("1 - Dodaj\n2 - Prikazi\n\n3 - Izadji");
+            System.out.println("1 - Dodaj\n2 - Prikazi\n3 - Ispit\n4 - Izadji");
             izbor = unosScanner.nextInt();
             switch (izbor) {
                 case 1:
@@ -60,18 +60,18 @@ public class Main {
 
                             System.out.println("----------DODAVANJE NOVOG UCENIKA----------");
                             System.out.println("Unesite Ime: ");
-                            ime = unosScanner.nextLine();
+                            ime = unosScanner.next();
                             System.out.println("Unesite Prezime: ");
-                            prezime = unosScanner.nextLine();
+                            prezime = unosScanner.next();
                             System.out.println("Unesite id:");
                             id = unosScanner.nextInt();
                             System.out.println("Unesite Datum Rodjenja (YYYY-MM-DD)");
-                            datumRodjenja = unosScanner.nextLine();
+                            datumRodjenja = unosScanner.next();
                             System.out.println("Unesite Pol (Muski, Zenski): ");
-                            temp = unosScanner.nextLine();
+                            temp = unosScanner.next();
                             pol = Pol.valueOf(temp);
                             System.out.println("Unesite Napredak (Teorija, Praksa):");
-                            temp = unosScanner.nextLine();
+                            temp = unosScanner.next();
                             napredak = Napredak.valueOf(temp);
                             Ucenik u = new Ucenik(ime, prezime, datumRodjenja, pol, napredak, brojCasova,
                                     brojPalihIspita, polozenaTeorija, polozenaPraksa, id);
@@ -89,18 +89,18 @@ public class Main {
 
                             System.out.println("----------DODAVANJE NOVOG INSTRUKTORA----------");
                             System.out.println("Unesite Ime: ");
-                            ime1 = unosScanner.nextLine();
+                            ime1 = unosScanner.next();
                             System.out.println("Unesite Prezime: ");
-                            prezime1 = unosScanner.nextLine();
+                            prezime1 = unosScanner.next();
                             System.out.println("Unesite Datum Rodjenja ()");
-                            datumRodjenja1 = unosScanner.nextLine();
+                            datumRodjenja1 = unosScanner.next();
                             System.out.println("Unesite Pol (Muski, Zenski): ");
-                            temp = unosScanner.nextLine();
+                            temp = unosScanner.next();
                             pol1 = Pol.valueOf(temp);
                             System.out.println("Unesite Platu: ");
                             plata = unosScanner.nextInt();
                             System.out.println("Unesite Tip Istruktora (Teorija, Praksa): ");
-                            temp = unosScanner.nextLine();
+                            temp = unosScanner.next();
                             tipInstruktora = TipInstruktora.valueOf(temp);
                             ArrayList<Ucenik> listaUcenika = new ArrayList<>();
                             Instruktor i = new Instruktor(ime1, prezime1, datumRodjenja1, pol1, plata, tipInstruktora,
@@ -131,24 +131,24 @@ public class Main {
                             int pneumaticiPrecnik;
                             int pneumaticiNosivost;
                             String pneumaticiIndeksBrzine;
-                            float pneumaticiDubinaGazecegSloja;
+                            int pneumaticiDubinaGazecegSloja;
                             tip pneumaticiTipGuma;
 
                             System.out.println("----------DODAVANJE NOVOG VOZILA----------");
                             System.out.println("Unesite Maksimalnu Brzinu: ");
                             maxBrzina = unosScanner.nextInt();
                             System.out.println("Unesite Marku: ");
-                            marka = unosScanner.nextLine();
+                            marka = unosScanner.next();
                             System.out.println("Unesite Verziju: ");
-                            verzija = unosScanner.nextLine();
+                            verzija = unosScanner.next();
                             System.out.println("Unesite Godiste: ");
                             godiste = unosScanner.nextInt();
                             System.out.println("Unesite Serijski broj: ");
-                            serijskiBroj = unosScanner.nextLine();
+                            serijskiBroj = unosScanner.next();
                             System.out.println("Unesite Boju: ");
-                            boja = unosScanner.nextLine();
+                            boja = unosScanner.next();
                             System.out.println("Unseite Vrstu Menjaca (true - automatik, false - manualni): ");
-                            temp = unosScanner.nextLine();
+                            temp = unosScanner.next();
                             automatik = Boolean.valueOf(temp);
                             System.out.println("Unesite Kilometrazu: ");
                             kilometraza = unosScanner.nextInt();
@@ -158,9 +158,9 @@ public class Main {
                             System.out.println("-----UNOSENJE MOTORA-----");
                             // unosenje motora
                             System.out.println("Unesite Marku Motora: ");
-                            motorMarka = unosScanner.nextLine();
+                            motorMarka = unosScanner.next();
                             System.out.println("Unesite Verziju Motora: ");
-                            motorVerzija = unosScanner.nextLine();
+                            motorVerzija = unosScanner.next();
                             System.out.println("Unesite Snagu Motora: ");
                             motorSnaga = unosScanner.nextInt();
                             System.out.println("Unesite Kubikazu Motora: ");
@@ -176,17 +176,17 @@ public class Main {
                             System.out.println("Unesite Odnos Sirine I Visine Pneumatika: ");
                             pneumaticiOdnosSirineIVisine = unosScanner.nextInt();
                             System.out.println("Unesite Konstrukciju Pneumatika: ");
-                            pneumaticiKonstrukcija = unosScanner.nextLine();
+                            pneumaticiKonstrukcija = unosScanner.next();
                             System.out.println("Unesite Precnik Pneumatika: ");
                             pneumaticiPrecnik = unosScanner.nextInt();
                             System.out.println("Unesite Nosivost Pneumatika: ");
                             pneumaticiNosivost = unosScanner.nextInt();
                             System.out.println("Unesite Indeks Brzine Pneumatika: ");
-                            pneumaticiIndeksBrzine = unosScanner.nextLine();
+                            pneumaticiIndeksBrzine = unosScanner.next();
                             System.out.println("Unesite Dubina Gazeceg Sloja Pneumatika: ");
-                            pneumaticiDubinaGazecegSloja = unosScanner.nextFloat();
+                            pneumaticiDubinaGazecegSloja = unosScanner.nextInt();
                             System.out.println("Unesite Tip Pneumatika (Zimski, Letnji): ");
-                            temp = unosScanner.nextLine();
+                            temp = unosScanner.next();
                             pneumaticiTipGuma = tip.valueOf(temp);
 
                             Pneumatici p = new Pneumatici(pneumaticiSirina, pneumaticiOdnosSirineIVisine,
@@ -208,7 +208,20 @@ public class Main {
                     System.out.println("Izabrali ste prikazivanje.\n");
                     System.out.println(autoskola);
                     break;
-                case 3:
+                case 3: //testirati jos
+                	System.out.println("1 - teorijski ispit, 2 - prakticni ispit");
+                	int opcija;
+                	opcija = unosScanner.nextInt();
+                	if(opcija == 1) {
+                		int kolicina;
+                		System.out.println("Unesite broj ucenika koji treba da polazu: ");
+                    	kolicina = unosScanner.nextInt();
+                		autoskola.polaganjeTeorije(kolicina);
+                	}
+                	if(opcija == 2)
+                		autoskola.polaganjePrakse();
+                	break;
+                case 4:
                     System.out.println("Dovidjenja :)");
                     izbor = 5;
                     break;

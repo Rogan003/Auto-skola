@@ -44,13 +44,13 @@ public class FunkcijeZaFajl {
                     n = Ucenik.Napredak.Praksa;
                 }
                 boolean teor;
-                if (obj[9].equals("True")) {
+                if (obj[9].equals("true")) {
                     teor = true;
                 } else {
                     teor = false;
                 }
                 boolean prak;
-                if (obj[10].equals("True")) {
+                if (obj[10].equals("true")) {
                     prak = true;
                 } else {
                     prak = false;
@@ -123,7 +123,7 @@ public class FunkcijeZaFajl {
             int j5 = Integer.parseInt(obj[6]);
             int j6 = Integer.parseInt(obj[8]);
             int j7 = Integer.parseInt(obj[9]);
-            float j8 = Float.parseFloat(obj[11]);
+            int j8 = Integer.parseInt(obj[11]);
             Pneumatici.tip t;
             if (obj[12].equals("Zimski")) {
                 t = Pneumatici.tip.Zimski;

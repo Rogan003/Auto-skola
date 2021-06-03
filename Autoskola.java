@@ -72,22 +72,58 @@ public class Autoskola {
 		return instruktori.size();
 	}
 	
+	int brojUcenikaKojiNisuPoloziliTeoriju()
+	{
+		int number = 0;
+		for(int i = 0;i < ucenici.size();++i)
+		{
+			if(!(ucenici.get(i).getPolozenaTeorija()))
+				++number;
+		}
+		return number;
+	}
+	
 	void polaganjeTeorije(int kolicina) {
-		for (int i = 0; i < kolicina; ++i) {
-			if (Math.random() * 10 + 1 < 8)
-				ucenici.get(i).polozioTeoriju();
-			else
-				ucenici.get(i).pao();
+		int i = 0;
+		if(kolicina <= this.brojUcenikaKojiNisuPoloziliTeoriju()) {
+			for (int j = 0; i < kolicina; ++j) {
+				if(!(ucenici.get(j).getPolozenaTeorija())) {
+					if (Math.random() * 10 + 1 < 8) {
+						ucenici.get(j).polozioTeoriju();
+						System.out.println(ucenici.get(j).getIme() + " " + ucenici.get(j).getPrezime() + " je polozio!");
+					}
+					else {
+						ucenici.get(j).pao();
+						System.out.println(ucenici.get(j).getIme() + " " + ucenici.get(j).getPrezime() + " nije polozio!");
+					}
+					++i;
+				}
+			}
 		}
 	}
 
 	void polaganjePrakse() {
-		double tezina = Math.random() * 3 + 1; // 1-strogi, 2-srednje, 3-popustljivi
-		if (Math.random() * 10 + 1 < 5 + tezina) {
-			ucenici.get(0).polozioPraksu();
-			ucenici.remove(0);
-		} else
-			ucenici.get(0).pao();
+		int index = 0;
+		while(index < ucenici.size())
+		{
+			if(!(ucenici.get(index).getPolozenaTeorija()))
+				++index;
+			else
+				break;
+		}
+		if(index < ucenici.size()) {
+			double tezina = Math.random() * 3 + 1; // 1-strogi, 2-srednje, 3-popustljivi
+			if (Math.random() * 10 + 1 < 5 + tezina) {
+				ucenici.get(index).polozioPraksu();
+				System.out.println(ucenici.get(index).getIme() + " " + ucenici.get(index).getPrezime() + " je polozio!");
+				ucenici.remove(index);
+			} else {
+				ucenici.get(index).pao();
+				System.out.println(ucenici.get(index).getIme() + " " + ucenici.get(index).getPrezime() + " nije polozio!");
+			}
+		}
+		else
+			System.out.println("Nijedan od ucenika nema polozenu teoriju!");
 	}
 
 	@Override

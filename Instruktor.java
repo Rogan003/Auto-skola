@@ -16,7 +16,7 @@ public class Instruktor extends Osoba {
 
     public Instruktor(String ime, String prezime, String datumRodjenja, Pol pol, int plata,
             TipInstruktora tipInstruktora, int godineStaza, ArrayList<Ucenik> listaUcenika) {
-        super(prezime, prezime, datumRodjenja, pol);
+        super(ime, prezime, datumRodjenja, pol);
         this.plata = plata;
         this.tipInstruktora = tipInstruktora;
         this.godineStaza = godineStaza;

@@ -15,7 +15,7 @@ public class Ucenik extends Osoba {
 
     public Ucenik(String ime, String prezime, String datumRodjenja, Pol pol, Napredak napredak, int brojCasova,
             int brojPalihIspita, boolean polozenaTeorija, boolean polozenaPraksa, int id) {
-        super(prezime, prezime, datumRodjenja, pol);
+        super(ime, prezime, datumRodjenja, pol);
         this.id = id;
         this.napredak = napredak;
         this.brojCasova = brojCasova;
